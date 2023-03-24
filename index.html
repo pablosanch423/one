@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="display: flex;">
+    <div>
+        <form name="multiply">
+            <input type="number" required id="num" for="numberone">
+            <br>
+            <h1>*</h1>
+            <br>
+            <input type="number" required id="numtwo" for="numbertwo">
+            <br>
+            <br>
+            <br>
+            <h1>=</h1>
+            <h1 class="display">
+                
+            </h1>
+            <input type="submit">  
+        </form>
+    </div>
+    
+    <div style="margin-left: 5vh;">
+        <form name="add">
+            <input type="range" min="0" max="100" required id="num3" >
+            <div class="scale">0</div>
+            <br>
+            <h1>+</h1>
+            <br>
+            <input type="number" required id="num4">
+            <br>
+            <br>
+            <br>
+            <h1>=</h1>
+            <h1 class="display2">
+                
+            </h1>
+            <input type="submit">  
+        </form>
+    </div>
+</body>
+<script>
+    let form = document.forms.multiply;
+    let display = document.querySelector('.display')
+   
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault()
+        
+        let num = document.getElementById('num').value
+        let num2 = document.getElementById('numtwo').value;
+
+        let product = Number(num) * Number(num2);
+        display.innerHTML = product
+    }) 
+
+    let formtwo = document.forms.add;
+    let displaytwo = document.querySelector('.display2');
+    let scalenum = document.querySelector('.scale')
+
+    document.getElementById('num3').addEventListener('change', ()=>{
+        scalenum.innerHTML = document.getElementById('num3').value
+    })
+   
+    formtwo.addEventListener('submit', (e)=>{
+        e.preventDefault()
+        
+        let num3 = document.getElementById('num3').value
+        let num4 = document.getElementById('num4').value;
+
+        let product = Number(num3) + Number(num4);
+        displaytwo.innerHTML = product
+    }) 
+</script>
+</html>
